@@ -1,5 +1,7 @@
 import DS from 'ember-data';
 
+// https://github.com/HackerNews/API
+
 export default DS.Model.extend({
   // dueTask:    DS.belongsTo('task', { inverse: 'dueFrequency', async: true }),
    
