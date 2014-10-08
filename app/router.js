@@ -6,6 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('news');  // { path: ":task_id/edit" }
 });
 
 export default Router;
