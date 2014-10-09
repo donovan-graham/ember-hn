@@ -1,7 +1,12 @@
-<h5>{{type}}</h5>
+<h1>News items</h1>
 
-<a target="_blank" {{bindAttr href=url}}>
- <h1>{{title}}</h1>
-</a>
+<ul>
+  {{#each item in model}}
+    <li>{{#link-to 'news.item' item.id}}{{item.title}}{{/link-to}}</li>
+  {{/each}}
+  <li>{{#link-to 'news.item' 8422599}}########### An item{{/link-to}}</li>
+</ul>
 
-<p>{{text}}</p>
+<div style="border: 2px solid red; padding:5px; margin: 5px;">
+{{outlet}}
+</div>

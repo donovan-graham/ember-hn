@@ -6,7 +6,18 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('news');  // { path: ":task_id/edit" }
+  this.resource('news', { path: 'news' }, function() {
+    // this.route('index');
+    this.route('item', { path: ":item_id" });
+  });
+
+  this.route('news/item');
 });
 
+
+
+
 export default Router;
+
+
+
