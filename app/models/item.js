@@ -10,12 +10,17 @@ export default DS.Model.extend({
   time: DS.attr('date'),  
   text: DS.attr('string'),   
   dead: DS.attr('boolean', { defaultValue: false }),  
-  // parent: DS.belongsTo('item', { inverse: 'kids', async: true }),    
-  // kids: DS.belongsTo('item', { inverse: 'parent', async: true }),     
+  parent: DS.belongsTo('item', { inverse: 'kids', async: true }),    
+  kids: DS.hasMany('item', { inverse: 'parent', async: true }),      
   url: DS.attr('string'),  
   score: DS.attr('number'), 
   title: DS.attr('string'),
   // parts: DS.belongsTo('item', { inverse: 'root', async: true }),
+
+  username: function() {
+    return this.get('data.by.id');
+  }.property('data.id'),
+
 });
 
 

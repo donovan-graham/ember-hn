@@ -10,9 +10,11 @@ export default Ember.Route.extend({
 
     return Ember.$.getJSON(url).then(function(data) {
       var promises = [];
+
       data.forEach(function(item) {
         promises.push(_this.store.find('item', item));
       });
+      
       return Ember.RSVP.Promise.all(promises);
     });
     

@@ -10,8 +10,11 @@ Router.map(function() {
     // this.route('index');
     this.route('item', { path: ":item_id" });
   });
+ 
+  this.route('story', { path: "story/:item_id" });
 
-  this.route('news/item');
+
+
 });
 
 
