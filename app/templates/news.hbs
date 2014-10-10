@@ -1,12 +1,12 @@
-<h1>News items</h1>
-
 <ul>
   {{#each item in model}}
-    <li>{{#link-to 'news.item' item.id}}{{item.title}}{{/link-to}}</li>
+    <li>
+      <p><a {{bind-attr href=item.url}}>{{item.title}}</a> ({{url-parse item.url part="hostname"}})</p>
+      <p>
+        {{item.score}} points by <strong>{{item.username}}</strong> {{time-ago item.time}}
+      
+        | {{#link-to 'story' item.id}}comment{{/link-to}}
+      </p>
+    </li>
   {{/each}}
-  <li>{{#link-to 'news.item' 8422599}}########### An item{{/link-to}}</li>
 </ul>
-
-<div style="border: 2px solid red; padding:5px; margin: 5px;">
-{{outlet}}
-</div>

@@ -11,6 +11,8 @@ export default Ember.Route.extend({
     return Ember.$.getJSON(url).then(function(data) {
       var promises = [];
 
+      var data = data.slice(0, 29);
+
       data.forEach(function(item) {
         promises.push(_this.store.find('item', item));
       });
