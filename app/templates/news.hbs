@@ -1,12 +1,6 @@
-<ul>
-  {{#each item in model}}
-    <li>
-      <p><a {{bind-attr href=item.url}}>{{item.title}}</a> ({{url-parse item.url part="hostname"}})</p>
-      <p>
-        {{item.score}} points by <strong>{{item.username}}</strong> {{time-ago item.time}}
-      
-        | {{#link-to 'story' item.id}}comment{{/link-to}}
-      </p>
-    </li>
-  {{/each}}
-</ul>
+{{collection 'news-items' content=model}} 
+
+<hr>
+{{#if nextPage}}
+  {{#link-to 'news' (query-params page=nextPage)}}More{{/link-to}}
+{{/if}}

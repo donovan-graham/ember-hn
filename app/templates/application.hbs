@@ -1,3 +1,10 @@
-<h2>EmberJS Hacker News</h1>
+ <div id="header">
+  <a id="logo" href="http://emberjs.com/" target="_blank"></a>
+  <div id="nav">
+    {{#link-to 'news' (query-params page=1)}}EmberJS Hacker News{{/link-to}}
+  </div>
+ </div>
 
-{{outlet}}
+<div id="content">
+  {{outlet}}
+</div>

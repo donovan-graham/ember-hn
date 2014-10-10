@@ -24,13 +24,12 @@ module.exports = function(environment) {
 
     contentSecurityPolicy: {
       // 'default-src': "'none'",
-
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://cdn.firebase.com https://*.firebaseio.com",
       'frame-src': "'self' https://*.firebaseio.com",
-      // 'font-src': "'self'",
+      'font-src': "'self' fonts.gstatic.com",
       'connect-src': "'self' https://*.firebaseio.com wss://*.firebaseio.com",
       'img-src': "'self' res.cloudinary.com data:",
-      'style-src': "'self' 'unsafe-inline'"
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com"
     },
  
     firebase_instace: 'hacker-news',

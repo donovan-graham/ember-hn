@@ -2,17 +2,6 @@
 <p>(<a {{bind-attr href=url}}>{{url-parse url part="hostname"}}</a>)</p>
 <p>{{score}} points by <strong>{{username}}</strong> {{time-ago time}} </p>
 
-<ul>
-{{#each kid in kids}}
-  <li>
-    <p>
-      <strong>{{kid.username}}</strong> {{time-ago kid.time}} | {{#link-to 'story' kid.id}}link{{/link-to}}
-    </p>
-
-    <div>{{{kid.text}}}</div>
-  </li>
-{{/each}}
-</ul>
-
-{{!-- {{collection 'tree-list' content=kids}}
- --}}
+{{#if hasKids}}
+  {{collection 'comment-items' content=kids}}
+{{/if}}

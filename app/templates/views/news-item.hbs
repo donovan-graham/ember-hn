@@ -1,0 +1,5 @@
+<p>{{view.itemIndex}}. <a {{bind-attr href=url}}>{{title}}</a> ({{url-parse url part="hostname"}})</p>
+<p>
+  {{score}} points by <strong>{{username}}</strong> {{time-ago time}}
+  | {{#link-to 'story' id}}comments{{/link-to}}
+</p>

@@ -7,5 +7,5 @@ export default Ember.Handlebars.makeBoundHelper(function(href, options) {
   parser.href = href;  
 
   var part = options.hash.part || "hostname";
-  return parser[part]
+  return parser[part];
 });

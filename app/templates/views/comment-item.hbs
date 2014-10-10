@@ -1,0 +1,18 @@
+<div>
+  <div>
+  {{#if view.showLoader}} XXXXXXXX loading XXXXXX {{/if}}
+  </div>
+
+  <span class="toggle" {{action "toggleExpanded" target=view}}>
+   {{#if view.isExpanded}}[-]{{else}}[+]{{/if}}
+  </span>
+
+  <strong>{{username}}</strong> {{time-ago time}} | {{#link-to 'story' id}}link{{/link-to}}
+</div>
+
+<div {{bind-attr class="view.isExpanded:show:hide"}}>
+  <div>{{{text}}}</div>
+  {{#if hasKids}}
+    {{collection 'comment-items' content=kids}}
+  {{/if}}
+</div>
