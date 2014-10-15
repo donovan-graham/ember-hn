@@ -21,7 +21,7 @@ export default DS.Model.extend({
 
   username: function() {
     return this.get('data.by.id');
-  }.property('data.id'),
+  }.property('data.by.id'),
 
   numKids: function() {
     return this.get('data.kids.length');

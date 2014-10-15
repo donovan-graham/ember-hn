@@ -1,5 +1,5 @@
 <p>{{view.itemIndex}}. <a {{bind-attr href=url}}>{{title}}</a> ({{url-parse url part="hostname"}})</p>
 <p>
-  {{score}} points by <strong>{{username}}</strong> {{time-ago time}}
-  | {{#link-to 'item' id}}comments{{/link-to}}
+  {{score}} points by {{#link-to 'user' username}}{{username}}{{/link-to}} {{time-ago time}}
+  | {{#link-to 'item' id}}{{#if numKids}}comments{{else}}discuss{{/if}}{{/link-to}}
 </p>

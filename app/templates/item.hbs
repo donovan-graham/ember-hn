@@ -1,6 +1,10 @@
 <h1>{{title}}</h1>
 <p>(<a {{bind-attr href=url}}>{{url-parse url part="hostname"}}</a>)</p>
-<p>{{score}} points by <strong>{{username}}</strong> {{time-ago time}} </p>
+
+<p>
+  {{score}} points by {{#link-to 'user' username}}{{username}}{{/link-to}} {{time-ago time}}
+  | {{#link-to 'item' id}}{{#if numKids}}comments{{else}}discuss{{/if}}{{/link-to}}
+</p>
 
 {{#if hasKids}}
   {{collection 'comment-items' content=kids}}
