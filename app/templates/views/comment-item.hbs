@@ -3,7 +3,7 @@
    {{#if view.isExpanded}}[-]{{else}}[+]{{/if}}
   </span>
 
-  <strong>{{username}}</strong> {{time-ago time}} | {{#link-to 'story' id}}link{{/link-to}}
+  <strong>{{username}}</strong> {{time-ago time}} | {{#link-to 'item' id}}link{{/link-to}}
 </div>
 
 <div {{bind-attr class="view.isExpanded:show:hide"}}>
