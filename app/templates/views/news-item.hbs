@@ -1,10 +1,10 @@
 <h3 class="title"> 
-	<i class="index">{{view.itemIndex}}.</i>
-	<a {{bind-attr href=url}}>{{title}}</a> 
-	({{url-parse url part="hostname"}})
+	<i class="index">{{id}}.</i>
+	<a {{bind-attr href=item.url}}>{{item.title}}</a> 
+	({{url-parse item.url part="hostname"}})
 </h3>
 
 <span class="details">
-  {{score}} points by {{#link-to 'user' username}}{{username}}{{/link-to}} {{time-ago time}}
-  | {{#link-to 'item' id}}{{#if numKids}}comments{{else}}discuss{{/if}}{{/link-to}}
+  {{item.score}} points by {{#link-to 'user' item.username}}{{item.username}}{{/link-to}} {{time-ago item.time}}
+  | {{#link-to 'item' item.id}}{{#if item.numKids}}comments{{else}}discuss{{/if}}{{/link-to}}
 </span>

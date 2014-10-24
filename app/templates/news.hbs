@@ -1,6 +1,14 @@
-{{collection 'news-items' content=model}} 
+{{collection 'news-items' content=paginatedStories}} 
 
 <hr>
+{{#if prevPage}}
+  {{#link-to 'news' (query-params page=prevPage)}}&laquo;{{/link-to}}
+{{/if}}
+
+{{#each page in pagination}}
+  {{#link-to 'news' (query-params page=page)}}{{page}}{{/link-to}}  
+{{/each}}
+
 {{#if nextPage}}
-  {{#link-to 'news' (query-params page=nextPage)}}More{{/link-to}}
+  {{#link-to 'news' (query-params page=nextPage)}}&raquo;{{/link-to}}
 {{/if}}

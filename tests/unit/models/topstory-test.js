@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('topstories', 'Topstories', {
+moduleForModel('topstory', 'Topstory', {
   // Specify the other units that are required for this test.
   needs: []
 });
