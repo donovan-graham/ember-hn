@@ -1,0 +1,26 @@
+.anicon{
+	display: block;
+	width:30px;
+	height: 30px;
+	position:relative;
+	.line{
+		position:absolute;
+		display: block;
+		width: 20%;
+		height: 100%;
+		background: $orange;
+		left: 50%;
+		margin-left: -10%;
+		@include transition(transform, .4s, ease);
+		&.hori{
+			@include rotate(90); 
+		}
+	}
+	&.open{
+		.line{
+			&.vert{
+				@include rotate(90); 
+			}
+		}
+	}
+}

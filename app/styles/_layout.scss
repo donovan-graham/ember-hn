@@ -1,0 +1,151 @@
+html, body {
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;  
+  font-family: 'Maven Pro', sans-serif;
+}
+
+body {
+	background: no-repeat top center $orange-light;
+	background-image: url("/images/background-shades.png");
+	background-image: url("/images/background-shades.svg"),none;
+  margin: 60px 0 0 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
+  font-size: 14px;
+  line-height: 1.4em;
+  color: #444444;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+a{
+	color: $orange;
+	text-decoration:none;
+	&:hover{
+		border-bottom: 1px dotted $orange;
+	}
+}
+
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+span.toggle {
+  cursor: pointer; 
+}
+
+
+#header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 60px;
+  background: $orange top center;
+  background-image: url("/images/navigation_background.png");
+  border-bottom: 1px solid $orange-dark;
+  z-index: 10;
+  @include box-shadow(0, 0, 3px, rgba(0,0,0,0.3));
+  .header-wrap{
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+    height:100%;
+  	#logo {
+  	  position: absolute;
+  	  left: 7px;
+  	  top: 6px;
+  	  width: 103px;
+  	  height: 40px;
+  	  background-image: url("/images/ember_logo.png");
+      @include transform(scale(1));
+      @include transition(transform, 0.2s, ease);
+  	  z-index:1;
+  	}
+  	#nav{
+  		padding-left: 120px;
+  		top: 21px;
+  		position: relative;
+  		a {
+  		  font-family: 'Maven Pro';
+  		  font-weight: bold;
+  		  font-size: 13px;
+  		  text-transform: uppercase;
+  		  color: $orange-light;
+  		  text-shadow: rgba(0,0,0,0.3) 0px 1px 0px;
+  		  display: block;
+  		  padding: 0px 1em;
+  		  height: 26px;
+  		  line-height: 26px;
+  		  text-decoration: none;
+  		  border: 1px solid transparent;
+  		}
+  	}
+  } 
+}	
+
+#content {
+  overflow: hidden;
+  width: 90%;
+  max-width: 960px;
+  padding: 0px 0px 20px 0px;
+  margin: 0 auto;
+  position: relative;
+  .news-items{
+  	padding: 0 45px 0 45px;
+  	margin: 30px 0 30px 0;
+  	.news-item{
+  		list-style: none;
+  		.title{
+  			font-size: 14px;
+  			font-weight: normal;
+  			margin-bottom:5px;
+  			position:relative;
+  			.index{
+  				font-style: normal;
+  				position:absolute;
+  				right: 101%;
+  			}
+  		}
+  		.details{
+  			font-size: 12px;
+  			color: #666;
+  		}
+  	}
+  }
+  .article{
+  	.title{
+  		line-height: 1.3em;
+  		margin-bottom:5px;
+  	}
+  	.source{
+  		display: block;
+  		margin-bottom:10px;
+  	}
+  	.comment-items{
+      list-style: none;
+  		padding-left: 20px;
+      .comment-item{
+        .comment-header{
+          .toggle{
+            display: block;
+            .anicon{
+              width: 12px;
+              height: 12px;
+            }
+          }
+        }
+      }
+  	}
+  }
+}

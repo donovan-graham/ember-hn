@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.View.extend({
   templateName: 'views/comment-item',
+  classNames: ['comment-item'], 
 
   comment: Ember.computed.alias('content'),
 

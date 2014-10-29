@@ -1,9 +1,11 @@
- <div id="header">
-  <a id="logo" href="http://emberjs.com/" target="_blank"></a>
-  <div id="nav">
-    {{#link-to 'news' (query-params page=1)}}EmberJS Hacker News{{/link-to}}
-  </div>
- </div>
+<div id="header">
+	<div class="header-wrap">
+		<a id="logo" href="http://emberjs.com/" target="_blank"></a>
+		<div id="nav">
+		{{#link-to 'news' (query-params page=1)}}EmberJS Hacker News{{/link-to}}
+		</div>
+	</div>	
+</div>
 
 <div id="content">
   {{outlet}}
