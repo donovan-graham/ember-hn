@@ -106,6 +106,9 @@ span.toggle {
   	margin: 30px 0 30px 0;
   	.news-item{
   		list-style: none;
+      &.loaded{
+        @include animation(fadeIn 2s linear);
+      }
   		.title{
   			font-size: 14px;
   			font-weight: normal;

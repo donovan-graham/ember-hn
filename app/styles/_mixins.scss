@@ -51,3 +51,37 @@
     box-shadow: $top $left $blur $color;
   }
 }
+
+@mixin animation ($animation-props...) {
+   -webkit-animation: $animation-props;
+   -moz-animation: $animation-props;
+   -o-animation: $animation-props;
+   animation: $animation-props;
+}
+
+@mixin keyframe ($animation-name) {
+   @-webkit-keyframes $animation-name {
+       @content;
+   }
+   @-moz-keyframes $animation-name {
+       @content;
+   }
+   @-o-keyframes $animation-name {
+       @content;
+   }
+   @keyframes $animation-name {
+       @content;
+   }
+}
+
+@include keyframe(fadeIn) {
+   0% {
+      background-color:transparent;
+   }
+   50%{
+      background-color: $orange;
+   }
+   100% {
+      background-color:transparent;
+   }
+}
