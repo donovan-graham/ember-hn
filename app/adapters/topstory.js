@@ -1,7 +1,7 @@
 import ApplicationAdapter from './application';
 
 export default ApplicationAdapter.extend({
-  pathForType: function(type) {
+  pathForType: function() {
     return "topstories";
   },
 
@@ -9,7 +9,7 @@ export default ApplicationAdapter.extend({
     var payload = {
       id: snapshot.name(),
       item: snapshot.val()
-    }
+    };
     return payload;
   },
 
