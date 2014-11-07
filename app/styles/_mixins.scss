@@ -76,12 +76,12 @@
 
 @include keyframe(fadeIn) {
    0% {
-      background-color:transparent;
+      background-color: transparent;
    }
    50%{
-      background-color: $orange;
+      background-color: rgba(242, 56, 24, 0.4);
    }
    100% {
-      background-color:transparent;
+      background-color: transparent;
    }
 }

@@ -1,7 +1,10 @@
-#loader {
+/* https://github.com/tobiasahlin/SpinKit */
+
+.loader {
   width: 30px;
   height: 30px;
   background-color: $orange;
+
   margin: 100px auto;
   -webkit-animation: rotateplane 1.2s infinite ease-in-out;
   animation: rotateplane 1.2s infinite ease-in-out;

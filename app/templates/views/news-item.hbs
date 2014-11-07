@@ -1,4 +1,5 @@
 {{#if item.isLoaded}}
+  
   <h3 class="title"> 
     <i class="index">{{rank}}.</i>
     <a {{bind-attr href=item.url}}>{{item.title}}</a> 
@@ -9,10 +10,18 @@
     {{item.score}} points by {{#link-to 'user' item.username}}{{item.username}}{{/link-to}} {{time-ago item.time}}
     | {{#link-to 'item' item.id}}{{#if item.numKids}}comments{{else}}discuss{{/if}}{{/link-to}}
   </span>
+
 {{else}}
 
   <h3 class="title"> 
-    <i class="index">{{rank}}.</i> loading ....
+    <i class="index">{{rank}}.</i> 
+    <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>
   </h3>
   
 {{/if}}
