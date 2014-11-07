@@ -1,9 +1,9 @@
 {
-  "predef": {
-    "document": true,
-    "window": true,
-    "-Promise": true
-  },
+  "predef": [
+    "document",
+    "window",
+    "-Promise"
+  ],
   "browser" : true,
   "boss" : true,
   "curly": true,
@@ -28,5 +28,5 @@
   "white": false,
   "eqnull": true,
   "esnext": true,
-  "unused": false
+  "unused": true
 }
