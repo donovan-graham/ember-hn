@@ -1,6 +1,6 @@
 <div class="article">
 	<h1 class="title">{{title}}</h1>
-	<span class="source">(<a {{bind-attr href=url}}>{{url-parse url part="hostname"}}</a>)</span>
+	<span class="source">(<a href={{url}}>{{url-parse url part="hostname"}}</a>)</span>
 
 	<span class="info">
 	  {{score}} points by {{#link-to 'user' username}}{{username}}{{/link-to}} {{time-ago time}}
@@ -10,4 +10,4 @@
 	{{#if hasKids}}
 	  {{collection 'comment-items' content=kids}}
 	{{/if}}
-</div>	
+</div>

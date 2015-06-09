@@ -1,6 +1,6 @@
 <div class="comment-header">
 	<div class="toggle" {{action "toggleExpanded" target=view}}>
-		<div {{bind-attr class=":anicon view.isExpanded:open"}}>
+		<div class="anicon {{if view.isExpanded 'open'}}">
 			<i class="line vert"></i>
 			<i class="line hori"></i>
 		</div>
@@ -8,7 +8,7 @@
   <strong>{{username}}</strong> {{time-ago time}} | {{#link-to 'item' id}}link{{/link-to}}
 </div>
 
-<div {{bind-attr class=":comment-content view.isExpanded:show:hide"}}>
+<div class="comment-content {{if view.isExpanded 'show' 'hide'}}">
   <div class="comment-text">{{{text}}}</div>
   {{#if hasKids}}
     {{collection 'comment-items' content=kids}}

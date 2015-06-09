@@ -1,10 +1,10 @@
 
 <ul>
-{{#each story in paginatedStories}}
+{{#each paginatedStories as |story|}}
   <li>
-    <h3 class="title"> 
+    <h3 class="title">
       <i class="index">{{story.rank}}.</i>
-      <a {{bind-attr href=story.item.url}} target="_blank">{{story.item.title}}</a>
+      <a href={{story.item.url}} target="_blank">{{story.item.title}}</a>
       {{#if story.item.url}}
         ({{url-parse story.item.url part="hostname"}})
       {{/if}}
@@ -19,7 +19,7 @@
 </ul>
 
 
-{{!-- {{collection 'news-items' content=paginatedStories}} 
+{{!-- {{collection 'news-items' content=paginatedStories}}
 
 <hr>
 
@@ -27,8 +27,8 @@
   {{#link-to 'news' (query-params page=prevPage)}}&laquo;{{/link-to}}
 {{/if}}
 
-{{#each page in pagination}}
-  {{#link-to 'news' (query-params page=page)}}{{page}}{{/link-to}}  
+{{#each pagination as |page|}}
+  {{#link-to 'news' (query-params page=page)}}{{page}}{{/link-to}}
 {{/each}}
 
 {{#if nextPage}}
