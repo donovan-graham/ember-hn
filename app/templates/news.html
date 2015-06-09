@@ -1,0 +1,36 @@
+
+<ul>
+{{#each story in paginatedStories}}
+  <li>
+    <h3 class="title"> 
+      <i class="index">{{story.rank}}.</i>
+      <a {{bind-attr href=story.item.url}} target="_blank">{{story.item.title}}</a>
+      {{#if story.item.url}}
+        ({{url-parse story.item.url part="hostname"}})
+      {{/if}}
+    </h3>
+
+    <span class="details">
+      {{story.item.score}} points by {{#link-to 'user' story.item.username}}{{story.item.username}}{{/link-to}} {{time-ago story.item.time}}
+      | {{#link-to 'item' story.item.id}}{{#if story.item.numKids}}comments{{else}}discuss{{/if}}{{/link-to}}
+    </span>
+  </li>
+{{/each}}
+</ul>
+
+
+{{!-- {{collection 'news-items' content=paginatedStories}} 
+
+<hr>
+
+{{#if prevPage}}
+  {{#link-to 'news' (query-params page=prevPage)}}&laquo;{{/link-to}}
+{{/if}}
+
+{{#each page in pagination}}
+  {{#link-to 'news' (query-params page=page)}}{{page}}{{/link-to}}  
+{{/each}}
+
+{{#if nextPage}}
+  {{#link-to 'news' (query-params page=nextPage)}}&raquo;{{/link-to}}
+{{/if}} --}}
