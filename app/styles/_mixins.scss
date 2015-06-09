@@ -18,27 +18,27 @@
 @mixin rotate ($deg) {
   @include transform(rotate(#{$deg}deg));
 }
- 
-// scale
-@mixin scale($scale) {
-	 @include transform(scale($scale));
-} 
-// translate
-@mixin translate ($x, $y) {
-   @include transform(translate($x, $y));
-}
-// skew
-@mixin skew ($x, $y) {
-   @include transform(skew(#{$x}deg, #{$y}deg));
-}
-//transform origin
-@mixin transform-origin ($origin) {
-    moz-transform-origin: $origin;
-	     -o-transform-origin: $origin;
-	    -ms-transform-origin: $origin;
-	-webkit-transform-origin: $origin;
-          transform-origin: $origin;
-}
+
+// // scale
+// @mixin scale($scale) {
+// 	 @include transform(scale($scale));
+// }
+// // translate
+// @mixin translate ($x, $y) {
+//    @include transform(translate($x, $y));
+// }
+// // skew
+// @mixin skew ($x, $y) {
+//    @include transform(skew(#{$x}deg, #{$y}deg));
+// }
+// //transform origin
+// @mixin transform-origin ($origin) {
+//     moz-transform-origin: $origin;
+// 	     -o-transform-origin: $origin;
+// 	    -ms-transform-origin: $origin;
+// 	-webkit-transform-origin: $origin;
+//           transform-origin: $origin;
+// }
 
 @mixin box-shadow($top, $left, $blur, $color, $inset: false) {
   @if $inset {
@@ -59,29 +59,29 @@
    animation: $animation-props;
 }
 
-@mixin keyframe ($animation-name) {
-   @-webkit-keyframes $animation-name {
-       @content;
-   }
-   @-moz-keyframes $animation-name {
-       @content;
-   }
-   @-o-keyframes $animation-name {
-       @content;
-   }
-   @keyframes $animation-name {
-       @content;
-   }
-}
+// @mixin keyframe ($animation-name) {
+//    @-webkit-keyframes $animation-name {
+//        @content;
+//    }
+//    @-moz-keyframes $animation-name {
+//        @content;
+//    }
+//    @-o-keyframes $animation-name {
+//        @content;
+//    }
+//    @keyframes $animation-name {
+//        @content;
+//    }
+// }
 
-@include keyframe(fadeIn) {
-   0% {
-      background-color: transparent;
-   }
-   50%{
-      background-color: rgba(242, 56, 24, 0.25);
-   }
-   100% {
-      background-color: transparent;
-   }
-}
+// @include keyframe(fadeIn) {
+//    0% {
+//       background-color: transparent;
+//    }
+//    50%{
+//       background-color: rgba(242, 56, 24, 0.25);
+//    }
+//    100% {
+//       background-color: transparent;
+//    }
+// }
