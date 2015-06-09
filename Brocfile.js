@@ -17,9 +17,28 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-app.import('bower_components/firebase/firebase.js');
-app.import('bower_components/emberfire/dist/emberfire.js');
-app.import('bower_components/moment/moment.js');
+app.import('bower_components/momentjs/moment.js');
 app.import('bower_components/hammerjs/hammer.js');
- 
+
+
+app.import('vendor/shims/moment.js', {
+  exports: {
+    'moment': ['default']
+  }
+});
+app.import('vendor/shims/hammer.js', {
+  exports: {
+    'hammer': ['default']
+  }
+});
+app.import('vendor/shims/firebase.js', {
+  exports: {
+    'firebase': ['default']
+  }
+});
+
 module.exports = app.toTree();
+
+
+
+
