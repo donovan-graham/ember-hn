@@ -19,13 +19,13 @@ export default DS.Model.extend({
   // parts: DS.belongsTo('item', { inverse: 'root', async: true }),     // pollopts
 
 
-  username: function() {
+  username: Ember.computed('data.by.id', function() {
     return this.get('data.by.id');
-  }.property('data.by.id'),
+  }),
 
-  numKids: function() {
+  numKids: Ember.computed('data.kids.length', function() {
     return this.get('data.kids.length');
-  }.property('data.kids.length'),
+  }),
 
   hasKids: Ember.computed.bool('numKids'),
   isParent: Ember.computed.alias('hasKids'),

@@ -1,4 +1,5 @@
 // import Ember from 'ember';
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -8,14 +9,14 @@ export default DS.Model.extend({
   about: DS.attr('string'),
   submitted: DS.hasMany('item', { async: true }),
 
-  username: function() {
+  username: Ember.computed('data.id', function() {
     return this.get('data.id');
-  }.property('data.id'),
+  }),
 
-  numSubmissions: function() {
+  numSubmissions: Ember.computed('data.submitted.length', function() {
     // some are comments ...
     // some are stories ...
     return this.get('data.submitted.length');
-  }.property('data.submitted.length'),
+  }),
 
  });
