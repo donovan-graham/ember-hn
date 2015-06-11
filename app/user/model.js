@@ -24,4 +24,4 @@ export default DS.Model.extend({
   // }),
   numSubmissions: alias('submitted.length'),
 
- });
+});

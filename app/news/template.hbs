@@ -1,14 +1,5 @@
-{{collection 'news-items' content=paginatedStories}}
+{{pagination-links routeName='news' page=page itemsPerPage=itemsPerPage totalItems=stories.length}}
 
 <hr>
-{{#if prevPage}}
-  {{#link-to 'news' (query-params page=prevPage)}}&laquo;{{/link-to}}
-{{/if}}
 
-{{#each pagination as |page|}}
-  {{#link-to 'news' (query-params page=page)}}{{page}}{{/link-to}}
-{{/each}}
-
-{{#if nextPage}}
-  {{#link-to 'news' (query-params page=nextPage)}}&raquo;{{/link-to}}
-{{/if}}
+{{collection 'news-items' content=resultsForPage}}

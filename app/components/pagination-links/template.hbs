@@ -1,0 +1,7 @@
+{{#link-to routeName (query-params page=prevPage) disabled=disablePrevPage}}&laquo;{{/link-to}}
+
+{{#each pages as |page|}}
+  {{#link-to routeName (query-params page=page)}}{{page}}{{/link-to}}
+{{/each}}
+
+{{#link-to routeName (query-params page=nextPage) disabled=disableNextPage}}&raquo;{{/link-to}}

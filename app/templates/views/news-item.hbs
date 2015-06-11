@@ -10,7 +10,7 @@
 
   <span class="details">
     {{item.score}} points by {{#link-to 'user' item.username}}{{item.username}}{{/link-to}} {{time-ago item.time}}
-    | {{#link-to 'item' item.id}}{{#if item.numKids}}comments{{else}}discuss{{/if}}{{/link-to}}
+    | {{#link-to 'item' item.id}}{{#if item.hasDescendants}} {{item.descendants}} comments{{else}}discuss{{/if}}{{/link-to}}
   </span>
 
 {{else}}
