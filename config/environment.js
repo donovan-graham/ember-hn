@@ -19,9 +19,9 @@ module.exports = function(environment) {
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
-        'ember-routing-htmlbars-improved-actions': true,
-        'ember-views-component-block-info': true,
-        'ember-htmlbars-component-generation': true,
+        // 'ember-routing-htmlbars-improved-actions': true,
+        // 'ember-views-component-block-info': true,
+        // 'ember-htmlbars-component-generation': true,
       }
     },
 
