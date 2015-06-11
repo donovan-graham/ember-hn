@@ -1,11 +1,13 @@
 import Ember from 'ember';
 
+var alias = Ember.computed.alias;
+
 export default Ember.ArrayController.extend({
   queryParams: ['page'],
   page: 1,
   limit: 30,
 
-  stories: Ember.computed.alias('model'),
+  stories: alias('model'),
 
   observePage: Ember.observer('page', function() {
     window.scrollTo(0,0);
@@ -47,7 +49,7 @@ export default Ember.ArrayController.extend({
     var page = parseInt(this.get('page'), 10);
     var start = Math.max(0, (page - 1) * this.get('limit'));
     var end = Math.min(start + this.get('limit'), this.get('stories.length'));
-    return this.get('stories').slice(start, end);     
+    return this.get('stories').slice(start, end);
   }),
 
 });
