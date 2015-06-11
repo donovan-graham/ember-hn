@@ -1,1 +1,3 @@
-{{outlet}}
+{{collection 'news-items' content=resultsForPage}}
+<hr>
+{{pagination-links routeName='topstories' page=page itemsPerPage=itemsPerPage totalItems=stories.length}}
