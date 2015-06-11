@@ -17,14 +17,134 @@
 }
 
 @keyframes rotateplane {
-  0% { 
+  0% {
     transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
-  } 50% { 
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  } 50% {
     transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
-  } 100% { 
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+  } 100% {
     transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
   }
+}
+
+
+
+
+/* HN logo */
+
+.hn-logo {
+  font-family: 'Roboto', sans-serif;
+  display: inline-block;
+  font-size: 6em;
+  font-family: "Fjalla One",sans-serif;
+  font-style: normal;
+  line-height: 1.4em;
+  height: 1.5em;
+  width: 1.5em;
+  border: .1em solid #fff;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+
+.hn-logo .h {
+  position: relative;
+  left: .025em
+}
+
+.hn-logo .n {
+  position: relative;
+  right: .025em
+}
+
+.hn-logo.animated .h, .hn-logo.animated .n {
+  -webkit-animation: bounce 2s ease infinite;
+  -moz-animation: bounce 2s ease infinite;
+  animation: bounce 2s ease infinite
+}
+
+.hn-logo.animated .n {
+  -webkit-animation-delay: .25s;
+  -moz-animation-delay: .25s;
+  animation-delay: .25s
+}
+
+@-webkit-keyframes bounce {
+  0%,10%,25%,40%,50% {
+    -webkit-transform: translateY(0)
+  }
+
+  20% {
+    -webkit-transform: translateY(-.75em)
+  }
+
+  30% {
+    -webkit-transform: translateY(-.375em)
+  }
+}
+
+@-moz-keyframes bounce {
+  0%,10%,25%,40%,50% {
+    -moz-transform: translateY(0)
+  }
+
+  20% {
+    -moz-transform: translateY(-.75em)
+  }
+
+  30% {
+    -moz-transform: translateY(-.375em)
+  }
+}
+
+@keyframes bounce {
+  0%,10%,25%,40%,50% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0)
+  }
+
+  20% {
+    -webkit-transform: translateY(-.75em);
+    -moz-transform: translateY(-.75em);
+    -ms-transform: translateY(-.75em);
+    -o-transform: translateY(-.75em);
+    transform: translateY(-.75em)
+  }
+
+  30% {
+    -webkit-transform: translateY(-.375em);
+    -moz-transform: translateY(-.375em);
+    -ms-transform: translateY(-.375em);
+    -o-transform: translateY(-.375em);
+    transform: translateY(-.375em)
+  }
+}
+
+
+.hn-logo {
+  color: rgba(170,170,170,.5);
+  border-color: rgba(170,170,170,.5);
+}
+
+.center-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin: auto;
+  text-align: center;
 }

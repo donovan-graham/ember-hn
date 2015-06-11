@@ -15,4 +15,8 @@ App = Ember.Application.extend({
 
 loadInitializers(App, config.modulePrefix);
 
+Ember.deprecate = function(){};
+Ember.warn = function(){};
+
+
 export default App;
