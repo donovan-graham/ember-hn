@@ -1,13 +1,13 @@
-<h1>{{username}}</h1>
+<h1>{{user.username}}</h1>
 <dl>
   <dt>Created:</dt>
-  <dd>{{time-ago created}}</dd>
+  <dd>{{time-ago user.created}}</dd>
   <dt>Karma:</dt>
-  <dd>{{karma}}</dd>
+  <dd>{{user.karma}}</dd>
   <dt>About:</dt>
-  <dd>{{about}}</dd>
-  {{!-- 
+  <dd>{{{user.about}}}</dd>
+  {{!--
     <dt>Submitted:</dt>
-    <dd>{{numSubmissions}}</dd> 
-  --}}  
+    <dd>{{numSubmissions}}</dd>
+  --}}
 </dl>
