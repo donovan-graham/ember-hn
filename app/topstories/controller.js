@@ -6,4 +6,5 @@ var alias = Ember.computed.alias;
 export default Ember.ArrayController.extend(Pagination, {
   stories: alias('model'),
   paginate: alias('stories'),
+  // itemsPerPage: 10
 });
