@@ -10,6 +10,39 @@
 	</div>
 </div>
 
+
+
+<style>
+
+nav i {
+  margin: 2px 0px;
+}
+
+i.icon svg {
+  height: 36px;
+  width: 36px;
+  /*fill: #999;*/
+  fill: rgba(170, 170, 170, 0.5);
+}
+
+i.icon svg:hover {
+  fill: rgba(170, 170, 170, 0.9);
+}
+
+</style>
+
+
+<nav>
+  <i class="icon">{{partial 'svgs/home'}} </i>
+  <i class="icon">{{partial 'svgs/news'}} </i>
+  <i class="icon">{{partial 'svgs/thermometer'}} </i>
+  <i class="icon">{{partial 'svgs/hour-glass'}} </i>
+  <i class="icon">{{partial 'svgs/address'}} </i>
+  <i class="icon">{{partial 'svgs/modern-mic'}} </i>
+  <i class="icon">{{partial 'svgs/help'}} </i>
+</nav>
+
+
 <div id="content">
   {{outlet}}
 </div>
