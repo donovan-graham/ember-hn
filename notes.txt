@@ -1,0 +1,4 @@
+https://github.com/HackerNews/API
+
+http://chancancode.github.io/hn-reader/newest
+

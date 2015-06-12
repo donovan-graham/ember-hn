@@ -37,6 +37,15 @@ app.import('vendor/shims/firebase.js', {
   }
 });
 
+// if (app.env !== 'production') {
+app.import('bower_components/sinonjs/sinon.js');
+
+app.import('vendor/ember-sinon/shim.js', {
+  exports: { 'sinon': ['default'] }
+});
+// }
+
+
 module.exports = app.toTree();
 
 
