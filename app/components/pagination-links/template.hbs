@@ -1,6 +1,6 @@
 {{#link-to routeName (query-params page=prevPage) disabled=disablePrevPage}}&laquo;{{/link-to}}
 
-{{#each pages as |page|}}
+{{#each pages key="@index" as |page|}}
   {{#link-to routeName (query-params page=page)}}{{page}}{{/link-to}}
 {{/each}}
 
