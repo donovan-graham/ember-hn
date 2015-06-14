@@ -9,7 +9,7 @@
 
   {{#if item.hasKids}}
     <ul class="comment-items">
-      {{#each item.kids as |kid|}}
+      {{#each item.kids key="@index" as |kid|}}
         {{comment-item comment=kid}}
       {{/each}}
     </ul>

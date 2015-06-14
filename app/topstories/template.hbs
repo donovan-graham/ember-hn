@@ -1,3 +1,8 @@
-{{collection 'news-items' content=resultsForPage}}
+<ul class="news-items">
+  {{#each resultsForPage key="@index" as |topstory|}}
+    {{story-item rank=topstory.rank item=topstory.item}}
+  {{/each}}
+</ul>
+
 <hr>
 {{pagination-links routeName='topstories' page=page itemsPerPage=itemsPerPage totalItems=stories.length}}

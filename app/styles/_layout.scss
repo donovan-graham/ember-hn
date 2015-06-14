@@ -7,12 +7,13 @@ html, body {
   font-size: 100%;
   vertical-align: baseline;
   font-family: 'Maven Pro', sans-serif;
+  background-color: $beige;
 }
 
 body {
-	background: no-repeat top center $orange-light;
-	background-image: url("../images/background-shades.png");
-	background-image: url("../images/background-shades.svg"),none;
+	// background: no-repeat top center $orange-light;
+	// background-image: url("../images/background-shades.png");
+	// background-image: url("../images/background-shades.svg"),none;
   margin: 60px 0 0 0;
   padding: 0;
   font-family: 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
@@ -26,8 +27,9 @@ body {
 a{
 	color: $orange;
 	text-decoration:none;
+  @include transition(color, 0.1s, linear);
 	&:hover{
-		border-bottom: 1px dotted $orange;
+    color: $orange-dark;
 	}
 }
 
@@ -112,12 +114,23 @@ span.toggle {
       &.loaded{
         @include animation(fadeIn 2.4s linear);
       }
-  		.title{
-  			font-size: 14px;
+
+      .title{
+  			font-size: 15px;
   			font-weight: normal;
   			margin: 5px 0 0;
   			position: relative;
-  			.index{
+
+        a {
+          color: #333;
+
+          &:hover{
+            color: #333;
+            border-bottom: none;
+          }
+        }
+
+        .index{
   				font-style: normal;
   				position: absolute;
   				right: 101%;
@@ -125,7 +138,7 @@ span.toggle {
   		}
   		.details{
   			font-size: 12px;
-  			color: #666;
+  			color: #AAA;
   		}
   	}
   }

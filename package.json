@@ -36,6 +36,6 @@
     "ember-export-application-global": "^1.0.2",
     "ember-sinon": "^0.2.1",
     "ember-watson": "^0.5.0",
-    "emberfire": "1.4.5"
+    "emberfire": "firebase/emberfire.git#ts-beta-19-changes"
   }
 }

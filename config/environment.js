@@ -30,7 +30,7 @@ module.exports = function(environment) {
 
   };
 
-  config.stubFirebase = true;
+  config.stubFirebase = false;
 
   if (environment === 'development') {
     // config.APP.LOG_RESOLVER = true;

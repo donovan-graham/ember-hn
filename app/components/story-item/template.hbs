@@ -3,14 +3,16 @@
   <h3 class="title">
     <i class="index">{{rank}}.</i>
     <a href={{item.url}} target="_blank">{{item.title}}</a>
-    {{#if item.url}}
-      ({{url-parse item.url part="hostname"}})
-    {{/if}}
   </h3>
 
   <span class="details">
-    {{item.score}} points by {{#link-to 'user' item.username}}{{item.username}}{{/link-to}} {{time-ago item.time}}
-    | {{#link-to 'item' item.id}}{{#if item.hasDescendants}} {{item.descendants}} comments{{else}}discuss{{/if}}{{/link-to}}
+    {{item.score}} points
+    | {{#link-to 'user' item.username}}{{item.username}}{{/link-to}}
+    | {{time-ago item.time}}
+    | {{#link-to 'item' item.id}} {{#if item.hasDescendants}}{{item.descendants}} comments{{else}}discuss{{/if}}{{/link-to}}
+    {{#if item.url}}
+     | {{url-parse item.url part="hostname"}}
+    {{/if}}
   </span>
 
 {{else}}
@@ -27,7 +29,3 @@
   </h3>
 
 {{/if}}
-
-
-
-

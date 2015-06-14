@@ -1,21 +1,23 @@
-<div class="comment-header">
-  <div class="toggle" {{action "toggleExpanded"}}>
-    <div class="anicon {{if isExpanded 'open'}}">
-      <i class="line vert"></i>
-      <i class="line hori"></i>
+{{#if comment.isLoaded}}
+  <div class="comment-header">
+    <div class="toggle" {{action "toggleExpanded"}}>
+      <div class="anicon {{if isExpanded 'open'}}">
+        <i class="line vert"></i>
+        <i class="line hori"></i>
+      </div>
     </div>
+    <strong>{{comment.username}}</strong> {{time-ago comment.time}} | {{#link-to 'item' comment.id}}link{{/link-to}}
   </div>
-  <strong>{{comment.username}}</strong> {{time-ago comment.time}} | {{#link-to 'item' comment.id}}link{{/link-to}}
-</div>
 
-<div class="comment-content {{if isExpanded 'show' 'hide'}}">
-  <div class="comment-text">{{{comment.text}}}</div>
+  <div class="comment-content {{if isExpanded 'show' 'hide'}}">
+    <div class="comment-text">{{{comment.text}}}</div>
 
-  {{#if comment.hasKids}}
-    <ul class="comment-items">
-      {{#each comment.kids as |kid|}}
-        {{comment-item comment=kid}}
-      {{/each}}
-    </ul>
-  {{/if}}
-</div>
+    {{#if comment.hasKids}}
+      <ul class="comment-items">
+        {{#each comment.kids key="@index" as |kid|}}
+          {{comment-item comment=kid}}
+        {{/each}}
+      </ul>
+    {{/if}}
+  </div>
+{{/if}}
