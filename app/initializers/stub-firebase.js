@@ -1,5 +1,5 @@
 import config from 'hacker-news/config/environment';
-import Firebase from 'firebase';
+import { Firebase, fb } from 'firebase';
 import sinon from 'sinon';
 
 var stubFirebase = function () {
@@ -29,7 +29,7 @@ var stubFirebaseAuth = function(uid) {
   uid = uid || '1';
 
   if (!fb.login.AuthenticationManager.prototype.authenticate.restore) {
-    sinon.stub(fb.login.AuthenticationManager.prototype, 'authenticate', function(cred, userProfile, clientOptions, opt_onComplete, opt_onCancel) {
+    sinon.stub(fb.login.AuthenticationManager.prototype, 'authenticate', function(cred, userProfile, clientOptions, opt_onComplete /*, opt_onCancel */) {
 
       var res = {
         token: cred,
@@ -538,7 +538,7 @@ var initialize = function(/* container, application */) {
   }
 
   stubFirebase();
-  //stubFirebaseAuth(1);
+  stubFirebaseAuth(1);
 
   var ref = new window.Firebase(config.firebase);
   Firebase.goOffline();
