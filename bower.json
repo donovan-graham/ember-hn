@@ -15,7 +15,8 @@
     "firebase": "^2.1.0",
     "moment": "~2.10.3",
     "hammerjs": "~2.0.4",
-    "sinonjs": "~1.14.1"
+    "sinonjs": "~1.14.1",
+    "bourbon": "4.2.1"
   },
   "resolutions": {
     "ember": "2.0.0-beta.1"

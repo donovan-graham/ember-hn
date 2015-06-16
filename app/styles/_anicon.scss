@@ -13,13 +13,13 @@
 		margin-left: -10%;
 		@include transition(transform, .4s, ease);
 		&.hori{
-			@include rotate(90); 
+			@include transform(rotate(90deg));
 		}
 	}
 	&.open{
 		.line{
 			&.vert{
-				@include rotate(90); 
+				@include transform(rotate(90deg));
 			}
 		}
 	}
