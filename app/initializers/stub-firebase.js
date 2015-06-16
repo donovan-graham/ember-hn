@@ -1,5 +1,5 @@
 import config from 'hacker-news/config/environment';
-import { Firebase, fb } from 'firebase';
+import Firebase from 'firebase';
 import sinon from 'sinon';
 
 var stubFirebase = function () {
@@ -25,33 +25,34 @@ var stubFirebase = function () {
   }
 };
 
-var stubFirebaseAuth = function(uid) {
-  uid = uid || '1';
 
-  if (!fb.login.AuthenticationManager.prototype.authenticate.restore) {
-    sinon.stub(fb.login.AuthenticationManager.prototype, 'authenticate', function(cred, userProfile, clientOptions, opt_onComplete /*, opt_onCancel */) {
+// var stubFirebaseAuth = function(uid) {
+//   uid = uid || '1';
 
-      var res = {
-        token: cred,
-        provider: "stub",
-        uid: uid,
-        expires: Math.floor(new Date() / 1000) + 24 * 60 * 60,
-        auth: {
-          provider: "stub",
-          uid: uid
-        }
-      };
+//   if (!fb.login.AuthenticationManager.prototype.authenticate.restore) {
+//     sinon.stub(fb.login.AuthenticationManager.prototype, 'authenticate', function(cred, userProfile, clientOptions, opt_onComplete /*, opt_onCancel */) {
 
-      var status = 'ok';
-      var data = {
-        auth: res.auth,
-        expires: res.expires
-      };
+//       var res = {
+//         token: cred,
+//         provider: "stub",
+//         uid: uid,
+//         expires: Math.floor(new Date() / 1000) + 24 * 60 * 60,
+//         auth: {
+//           provider: "stub",
+//           uid: uid
+//         }
+//       };
 
-      this.authOnComplete_(status, data, true, res["token"], res, clientOptions || {}, opt_onComplete);
-    });
-  }
-};
+//       var status = 'ok';
+//       var data = {
+//         auth: res.auth,
+//         expires: res.expires
+//       };
+
+//       this.authOnComplete_(status, data, true, res["token"], res, clientOptions || {}, opt_onComplete);
+//     });
+//   }
+// };
 
 
 
@@ -538,7 +539,7 @@ var initialize = function(/* container, application */) {
   }
 
   stubFirebase();
-  stubFirebaseAuth(1);
+  // stubFirebaseAuth(1);
 
   var ref = new window.Firebase(config.firebase);
   Firebase.goOffline();
