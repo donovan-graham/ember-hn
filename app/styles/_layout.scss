@@ -11,9 +11,6 @@ html, body {
 }
 
 body {
-	// background: no-repeat top center $orange-light;
-	// background-image: url("../images/background-shades.png");
-	// background-image: url("../images/background-shades.svg"),none;
   margin: 60px 0 0 0;
   padding: 0;
   font-family: 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
@@ -83,7 +80,7 @@ span.toggle {
   		  font-weight: bold;
   		  font-size: 13px;
   		  text-transform: uppercase;
-  		  color: $orange-light;
+  		  color: $white;
   		  text-shadow: rgba(0,0,0,0.3) 0px 1px 0px;
   		  display: block;
   		  padding: 0px 1em;
@@ -102,18 +99,32 @@ span.toggle {
   max-width: 960px;
   padding: 0px;
   position: relative;
-  margin: 60px auto 30px;
+  margin: 0px auto 30px;
   min-height: 200px;
 
 
   .news-items{
-  	padding: 0 45px 0 45px;
+  	padding: 0;
+    background-color: $white;
+    border: 1px solid $light-grey;
+    border-top: none;
+
   	.news-item{
   		list-style: none;
       min-height: 39px;
-      &.loaded{
-        @include animation(fadeIn 2.4s linear);
+
+      border-top: 1px solid $light-grey;
+      border-left: 2px solid transparent;
+      padding: 15px 35px 15px 45px;
+
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px 0px;
+        border-left: 2px solid $orange;
       }
+
+      // &.loaded{
+      //   @include animation(fadeIn 2.4s linear);
+      // }
 
       .title{
   			font-size: 15px;
@@ -134,6 +145,9 @@ span.toggle {
   				font-style: normal;
   				position: absolute;
   				right: 101%;
+          background-color: $light-grey;
+          border-radius: 10px;
+          padding: 0px 5px;
   			}
   		}
   		.details{
