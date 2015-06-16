@@ -3,7 +3,7 @@ import Firebase from 'firebase';
 import sinon from 'sinon';
 
 var stubFirebase = function () {
-  console.log('stubbing firebase');
+  console.log('Stubbing firebase');
   var originalSet = Firebase.prototype.set;
   var originalUpdate = Firebase.prototype.update;
 
@@ -24,6 +24,36 @@ var stubFirebase = function () {
     });
   }
 };
+
+var stubFirebaseAuth = function(uid) {
+  uid = uid || '1';
+
+  if (!fb.login.AuthenticationManager.prototype.authenticate.restore) {
+    sinon.stub(fb.login.AuthenticationManager.prototype, 'authenticate', function(cred, userProfile, clientOptions, opt_onComplete, opt_onCancel) {
+
+      var res = {
+        token: cred,
+        provider: "stub",
+        uid: uid,
+        expires: Math.floor(new Date() / 1000) + 24 * 60 * 60,
+        auth: {
+          provider: "stub",
+          uid: uid
+        }
+      };
+
+      var status = 'ok';
+      var data = {
+        auth: res.auth,
+        expires: res.expires
+      };
+
+      this.authOnComplete_(status, data, true, res["token"], res, clientOptions || {}, opt_onComplete);
+    });
+  }
+};
+
+
 
 var FixtureData = {
   "topstories": [ 9707170, 9707668, 9705832, 9705830, 9706035, 9705446, 9706633, 9707190, 9705780, 9706882, 9707918 ],
@@ -502,18 +532,15 @@ var FixtureData = {
 };
 
 
-
-
-
-
 var initialize = function(/* container, application */) {
   if (config.environment === 'production' || config.stubFirebase !== true) {
     return;
   }
 
   stubFirebase();
+  //stubFirebaseAuth(1);
+
   var ref = new window.Firebase(config.firebase);
-  /* goOffline() must be called after creating firebase ref */
   Firebase.goOffline();
   ref.set(FixtureData);
 };
