@@ -1,21 +1,15 @@
 <div id="header">
-	<div class="header-wrap">
-		<div id="nav">
+  <div class="header-wrap">
+    <div id="nav">
+      {{#link-to 'topstories' (query-params page=1)}}Hacker News{{/link-to}}
 
-		{{#link-to 'topstories' (query-params page=1)}}Hacker News{{/link-to}}
-
-    <i class="icon">{{partial 'svgs/home'}} </i>
-
-    {{#link-to 'topstories' (query-params page=1)}}<i class="icon">{{partial 'svgs/news'}}</i>{{/link-to}}
-
-    <i class="icon">{{partial 'svgs/thermometer'}} </i>
-    <i class="icon">{{partial 'svgs/hour-glass'}} </i>
-    <i class="icon">{{partial 'svgs/address'}} </i>
-    <i class="icon">{{partial 'svgs/modern-mic'}} </i>
-    <i class="icon">{{partial 'svgs/help'}} </i>
-
-		</div>
-	</div>
+      {{#link-to 'topstories' (query-params page=1)}}<i class="icon">{{partial 'svgs/news'}}</i>{{/link-to}}
+      {{#link-to 'showstories' (query-params page=1)}}<i class="icon">{{partial 'svgs/price-ribbon'}}</i>{{/link-to}}
+      {{#link-to 'askstories' (query-params page=1)}}<i class="icon">{{partial 'svgs/code'}}</i>{{/link-to}}
+      {{#link-to 'jobstories' (query-params page=1)}}<i class="icon">{{partial 'svgs/address'}}</i>{{/link-to}}
+      {{#link-to 'info'}}<i class="icon">{{partial 'svgs/heart-outlined'}}</i>{{/link-to}}
+    </div>
+  </div>
 </div>
 
 <div id="content">

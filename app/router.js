@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('item', { path: "item/:item_id" });
   this.route('user', { path: "user/:user_id" });
 
+  this.route('info');
 });
 
 export default Router;

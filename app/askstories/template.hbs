@@ -1,1 +1,8 @@
-{{outlet}}
+<ul class="news-items">
+  {{#each resultsForPage key="@index" as |story|}}
+    {{story-item rank=story.rank item=story.item}}
+  {{/each}}
+</ul>
+
+<hr>
+{{pagination-links routeName='askstories' page=page itemsPerPage=itemsPerPage totalItems=stories.length}}

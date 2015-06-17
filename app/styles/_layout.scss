@@ -50,7 +50,6 @@ span.toggle {
   top: 0;
   height: 60px;
   background: $orange top center;
-  background-image: url("../images/navigation_background.png");
   border-bottom: 1px solid $orange-dark;
   z-index: 10;
   @include box-shadow(0, 0, 3px, rgba(0,0,0,0.3));
@@ -116,7 +115,7 @@ span.toggle {
   padding: 0px;
   position: relative;
   margin: 0px auto 30px;
-  min-height: 200px;
+  min-height: 400px;
 
 
   .news-items{
