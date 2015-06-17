@@ -120,6 +120,7 @@ span.toggle {
 
 
   .news-items{
+    margin: 20px 0;
   	padding: 0;
     background-color: $white;
     border: 1px solid $light-grey;
@@ -181,6 +182,11 @@ span.toggle {
   	}
   }
   .article{
+    margin: 20px 0;
+    padding: 30px 45px;
+    background-color: $white;
+    border: 1px solid $light-grey;
+
   	.title{
   		line-height: 1.3em;
   		margin-bottom: 5px;

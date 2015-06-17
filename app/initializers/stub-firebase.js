@@ -2,19 +2,25 @@ import config from 'hacker-news/config/environment';
 import Firebase from 'firebase';
 import sinon from 'sinon';
 
+
+
 var stubFirebase = function () {
   console.log('Stubbing firebase');
-  var originalSet = Firebase.prototype.set;
-  var originalUpdate = Firebase.prototype.update;
 
   // check for existing stubbing
   if (!Firebase.prototype.set.restore) {
+    var originalSet = Firebase.prototype.set;
+
     sinon.stub(Firebase.prototype, 'set', function(newVal, onComplete) {
       originalSet.call(this, newVal);
       if (typeof onComplete === 'function') {
         setTimeout(onComplete, 0); // maintain async
       }
     });
+  }
+
+  if (!Firebase.prototype.update.restore) {
+    var originalUpdate = Firebase.prototype.update;
 
     sinon.stub(Firebase.prototype, 'update', function(objectToMerge, onComplete) {
       originalUpdate.call(this, objectToMerge);
@@ -26,32 +32,38 @@ var stubFirebase = function () {
 };
 
 
+// https://developers.google.com/closure/library/index
+// goog.require("fb.login.AuthenticationManager");
+//
 // var stubFirebaseAuth = function(uid) {
 //   uid = uid || '1';
-
-//   if (!fb.login.AuthenticationManager.prototype.authenticate.restore) {
-//     sinon.stub(fb.login.AuthenticationManager.prototype, 'authenticate', function(cred, userProfile, clientOptions, opt_onComplete /*, opt_onCancel */) {
-
-//       var res = {
-//         token: cred,
-//         provider: "stub",
-//         uid: uid,
-//         expires: Math.floor(new Date() / 1000) + 24 * 60 * 60,
-//         auth: {
-//           provider: "stub",
-//           uid: uid
-//         }
-//       };
-
-//       var status = 'ok';
-//       var data = {
-//         auth: res.auth,
-//         expires: res.expires
-//       };
-
-//       this.authOnComplete_(status, data, true, res["token"], res, clientOptions || {}, opt_onComplete);
-//     });
+//
+//   if (fb.login.AuthenticationManager.prototype.authenticate.restore) {
+//     fb.login.AuthenticationManager.prototype.authenticate.restore();
 //   }
+//
+//   sinon.stub(fb.login.AuthenticationManager.prototype, 'authenticate', function(cred, userProfile, clientOptions, opt_onComplete /*, opt_onCancel */) {
+//
+//     var res = {
+//       token: cred,
+//       provider: "stub",
+//       uid: uid,
+//       expires: Math.floor(new Date() / 1000) + 24 * 60 * 60,
+//       auth: {
+//         provider: "stub",
+//         uid: uid
+//       }
+//     };
+//
+//     var status = 'ok';
+//     var data = {
+//       auth: res.auth,
+//       expires: res.expires
+//     };
+//
+//     this.authOnComplete_(status, data, true, res["token"], res, clientOptions || {}, opt_onComplete);
+//   });
+//
 // };
 
 
