@@ -1,11 +1,19 @@
-{{#if item.isLoaded}}
-
-  <h3 class="title">
-    <i class="index">{{rank}}</i>
-    <a href={{item.url}} target="_blank">{{item.title}}</a>
-  </h3>
-
-  <span class="details">
+<h3 class="title">
+  <i class="index">{{rank}}</i>
+  {{#if item.isLoaded}}
+      <a href={{item.url}} target="_blank">{{item.title}}</a>
+  {{else}}
+      <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+  {{/if}}
+</h3>
+<span class="details">
+  {{#if item.isLoaded}}
     {{item.score}} points
     | {{#link-to 'user' item.username}}{{item.username}}{{/link-to}}
     | {{time-ago item.time}}
@@ -13,19 +21,5 @@
     {{#if item.url}}
      | {{url-parse item.url part="hostname"}}
     {{/if}}
-  </span>
-
-{{else}}
-
-  <h3 class="title">
-    <i class="index">{{rank}}.</i>
-    <div class="spinner">
-      <div class="rect1"></div>
-      <div class="rect2"></div>
-      <div class="rect3"></div>
-      <div class="rect4"></div>
-      <div class="rect5"></div>
-    </div>
-  </h3>
-
-{{/if}}
+  {{/if}}
+</span>
