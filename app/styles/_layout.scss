@@ -72,23 +72,39 @@ span.toggle {
   	  z-index:1;
   	}
   	#nav{
-  		padding-left: 120px;
+  		// padding-left: 120px;
   		top: 21px;
   		position: relative;
   		a {
   		  font-family: 'Maven Pro';
   		  font-weight: bold;
-  		  font-size: 13px;
+  		  font-size: 16px;
   		  text-transform: uppercase;
   		  color: $white;
   		  text-shadow: rgba(0,0,0,0.3) 0px 1px 0px;
   		  display: block;
+        float: left;
   		  padding: 0px 1em;
   		  height: 26px;
   		  line-height: 26px;
   		  text-decoration: none;
   		  border: 1px solid transparent;
   		}
+
+      i {
+        margin: 0 2px;
+      }
+
+      i.icon svg {
+        height: 24px;
+        width: 24px;
+        fill: $white;
+        @include transition(transform, 200ms, ease);
+      }
+
+      i.icon svg:hover {
+        @include transform(scale3d(1.4, 1.4, 1));
+      }
   	}
   }
 }
