@@ -33,11 +33,7 @@ module.exports = function(environment) {
   config.stubFirebase = false;
 
   if (environment === 'development') {
-    // config.APP.LOG_RESOLVER = true;
-    // config.APP.LOG_ACTIVE_GENERATION = true;
-    // config.APP.LOG_TRANSITIONS = true;
-    // config.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // config.APP.LOG_VIEW_LOOKUPS = true;
+     // config.stubFirebase = true;
   }
 
   if (environment === 'test') {

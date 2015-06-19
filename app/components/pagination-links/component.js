@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  tagName: 'ul',
+  classNames: ['pagination'],
+  // classNameBindings: [':pagination', 'isVisible::hide'],
 
   page: 1,
   itemsPerPage: 30,
@@ -15,19 +18,21 @@ export default Ember.Component.extend({
     }
   }),
 
+  // isVisible: Ember.computed.gte('totalPages', 2),
+
   prevPage: Ember.computed('totalPages', 'page', function() {
     var prev = parseInt(this.get('page'), 10) - 1;
     return (1 <= prev && prev < this.get('totalPages')) ? prev : null;
   }),
-  disablePrevPage: Ember.computed.none('prevPage'),
 
+  disablePrevPage: Ember.computed.none('prevPage'),
 
   nextPage: Ember.computed('totalPages', 'page', function() {
     var next = parseInt(this.get('page'), 10) + 1;
     return (1 < next && next <= this.get('totalPages')) ? next : null;
   }),
-  disableNextPage: Ember.computed.none('nextPage'),
 
+  disableNextPage: Ember.computed.none('nextPage'),
 
   pages: Ember.computed('totalPages', function() {
     var pages = [];
@@ -35,6 +40,5 @@ export default Ember.Component.extend({
       pages.push(i);
     }
     return pages;
-  }),
-
+  })
 });
