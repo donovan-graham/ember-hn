@@ -14,7 +14,7 @@
 
     {{#if comment.hasKids}}
       <ul class="comment-items">
-        {{#each comment.kids key="@index" as |kid|}}
+        {{#each comment.kids as |kid|}}
           {{comment-item comment=kid}}
         {{/each}}
       </ul>

@@ -34,16 +34,11 @@ export default DS.Model.extend({
   kids: DS.hasMany('item', { inverse: 'parent', async: true }),       // the ids of the item's comments, in ranked display order
   // parts: DS.belongsTo('item', { inverse: 'root', async: true }),     // pollopts
 
-  // top level, recursive
   descendants: DS.attr('number'),  //  In the case of stories or polls, the total comment count.
   hasDescendants: computed.bool('descendants'),
 
-  // username: Ember.computed('data.by', function() {
-  //   return this.get('data.by');
-  // }),
   username: computed.alias('by'),
 
-  //numKids: computed.alias('data.kids.length'),
   numKids: computed.alias('kids.length'),
 
   hasKids: computed.bool('numKids'),

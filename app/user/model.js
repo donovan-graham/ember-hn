@@ -12,16 +12,7 @@ export default DS.Model.extend({
 
   submitted: DS.hasMany('item', { async: true }),
 
-  // username: Ember.computed('data.id', function() {
-  //   return this.get('data.id');
-  // }),
   username: computed.alias('id'),
 
-  // numSubmissions: Ember.computed('data.submitted.length', function() {
-  //   // some are comments ...
-  //   // some are stories ...
-  //   return this.get('data.submitted.length');
-  // }),
   numSubmissions: computed.alias('submitted.length'),
-
 });

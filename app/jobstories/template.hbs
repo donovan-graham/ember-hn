@@ -1,5 +1,5 @@
 <ul class="news-items">
-  {{#each resultsForPage key="@index" as |story|}}
+  {{#each resultsForPage as |story|}}
     {{story-item rank=story.rank item=story.item}}
   {{/each}}
 </ul>
