@@ -2,9 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
+  // https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty
+
   model: function() {
-    // https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty
-    return this.store.find('askstories');
+    return this.store.findAll('askstories');
+  },
+
+  setupController(controller, model) {
+    this._super(controller, {});
+    controller.set('stories', model);
   }
 
 });

@@ -1,16 +1,31 @@
 <div class="article">
   <h1>Info</h1>
+  <p>
+    This is a single page, real-time app built on EmberJS and Firebase. It's an ongoing project to showcase Ember and keep up-to-date with the release and upgrade path.
+  </p>
 
-  This app was made by Donovan Graham.
 
-  It's a full client-side javascript app built with love using EmberJS and pulls data in real-time from Firebase.
+  <h2>Libraries</h2>
+  <ul>
+    {{#each libraries as |library|}}
+      <li>{{library.name}} v{{library.version}}</li>
+    {{/each}}
+  </ul>
 
-  Data - All the data in this app comes from Hacker News.
-  Logo - The logo is from a similar design by Joel Glovierapp.
-  Icons - The icons used are part of Entypo+ designed by Daniel Bruce.
-  Layout - Inspired by @chancancode
-  Contributors - @linearza
 
+  <h2>Acknowledgements</h2>
+  <ul>
+    <li>Data - Data is provided by Hacker News.</li>
+    <li>Logo - Original design by Joel Glovierapp.</li>
+    <li>Icons - Entypo+ designed by Daniel Bruce.</li>
+    <li>Layout - Inspired by @chancancode</li>
+    <li>Contributors - @donovan-graham @linearza</li>
+  </ul>
+
+  <p>
+    Share and enjoy! <br>
+    Donovan Graham
+  </p>
 
 
 </div>

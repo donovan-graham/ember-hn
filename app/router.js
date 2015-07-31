@@ -1,8 +1,8 @@
 import Ember from 'ember';
-import config from 'hacker-news/config/environment';
+import ENV from 'hacker-news/config/environment';
 
 var Router = Ember.Router.extend({
-  location: config.locationType
+  location: ENV.locationType
 });
 
 Router.map(function() {

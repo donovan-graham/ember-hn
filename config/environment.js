@@ -1,7 +1,8 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
-  var config = {
+
+  var ENV = {
     modulePrefix: 'hacker-news',
     environment: environment,
     contentSecurityPolicy: {
@@ -15,42 +16,36 @@ module.exports = function(environment) {
 
     firebase: 'https://hacker-news.firebaseio.com/v0',
 
-    baseURL: '/ember-hn/',
+    baseURL: '/',
     locationType: 'hash',
     EmberENV: {
-      FEATURES: {
-        // 'ember-routing-htmlbars-improved-actions': true,
-        // 'ember-views-component-block-info': true,
-        // 'ember-htmlbars-component-generation': true,
-      }
+      FEATURES: { }
     },
 
-    APP: {
-    },
-
+    APP: { },
   };
 
-  config.stubFirebase = false;
+  ENV.stubFirebase = false;
 
   if (environment === 'development') {
-     // config.stubFirebase = true;
+    // ENV.stubFirebase = true;
   }
 
   if (environment === 'test') {
     // Testem prefers this...
-    config.baseURL = '/';
-    config.locationType = 'auto';
+    ENV.baseURL = '/';
+    ENV.locationType = 'auto';
 
     // keep test console output quieter
-    config.APP.LOG_ACTIVE_GENERATION = false;
-    config.APP.LOG_VIEW_LOOKUPS = false;
+    ENV.APP.LOG_ACTIVE_GENERATION = false;
+    ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    config.APP.rootElement = '#ember-testing';
+    ENV.APP.rootElement = '#ember-testing';
   }
 
   if (environment === 'production') {
-
+    ENV.baseURL = '/ember-hn/';
   }
 
-  return config;
+  return ENV;
 };

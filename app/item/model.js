@@ -3,7 +3,7 @@ import DS from 'ember-data';
 
 // https://github.com/HackerNews/API
 
-const ITEM_TYPE_JOB = 'job',
+var ITEM_TYPE_JOB = 'job',
   ITEM_TYPE_STORY = 'story',
   ITEM_TYPE_COMMENT = 'comment',
   ITEM_TYPE_POLL = 'poll',
@@ -12,9 +12,8 @@ const ITEM_TYPE_JOB = 'job',
 export { ITEM_TYPE_JOB, ITEM_TYPE_STORY, ITEM_TYPE_COMMENT, ITEM_TYPE_POLL, ITEM_TYPE_POLLOPT };
 
 
-var alias = Ember.computed.alias,
-  equal = Ember.computed.equal,
-  bool = Ember.computed.bool;
+
+const { computed } = Ember;
 
 export default DS.Model.extend({
   type: DS.attr('string'),      // "job", "story", "comment", "poll", or "pollopt"
@@ -35,25 +34,20 @@ export default DS.Model.extend({
   kids: DS.hasMany('item', { inverse: 'parent', async: true }),       // the ids of the item's comments, in ranked display order
   // parts: DS.belongsTo('item', { inverse: 'root', async: true }),     // pollopts
 
-  // top level, recursive
   descendants: DS.attr('number'),  //  In the case of stories or polls, the total comment count.
-  hasDescendants: bool('descendants'),
+  hasDescendants: computed.bool('descendants'),
 
-  // username: Ember.computed('data.by', function() {
-  //   return this.get('data.by');
-  // }),
-  username: alias('by'),
+  username: computed.alias('by'),
 
-  //numKids: alias('data.kids.length'),
-  numKids: alias('kids.length'),
+  numKids: computed.alias('kids.length'),
 
-  hasKids: bool('numKids'),
-  isParent: alias('hasKids'),
+  hasKids: computed.bool('numKids'),
+  isParent: computed.alias('hasKids'),
 
-  isJob: equal('type', ITEM_TYPE_JOB),
-  isStory: equal('type', ITEM_TYPE_STORY),
-  isComment: equal('type', ITEM_TYPE_COMMENT),
-  isPoll: equal('type', ITEM_TYPE_POLL),
-  isPollOpt: equal('type', ITEM_TYPE_POLLOPT),
+  isJob: computed.equal('type', ITEM_TYPE_JOB),
+  isStory: computed.equal('type', ITEM_TYPE_STORY),
+  isComment: computed.equal('type', ITEM_TYPE_COMMENT),
+  isPoll: computed.equal('type', ITEM_TYPE_POLL),
+  isPollOpt: computed.equal('type', ITEM_TYPE_POLLOPT),
 
 });

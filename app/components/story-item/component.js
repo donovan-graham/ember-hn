@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-var alias = Ember.computed.alias;
+const { computed } = Ember;
 
 export default Ember.Component.extend({
  tagName: 'li',
@@ -9,5 +9,5 @@ export default Ember.Component.extend({
  item: null,
  rank: null,
 
- loaded: alias('item.isLoaded'),
+ loaded: computed.alias('item.isLoaded'),
 });
