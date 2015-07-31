@@ -1,10 +1,10 @@
 import Ember from 'ember';
 import Pagination from 'hacker-news/mixins/pagination';
 
-var alias = Ember.computed.alias;
+const { computed } = Ember;
 
-export default Ember.ArrayController.extend(Pagination, {
-  stories: alias('model'),
-  paginate: alias('stories'),
+export default Ember.Controller.extend(Pagination, {
+  stories: null,
+  paginate: computed.alias('stories'),
   // itemsPerPage: 10
 });

@@ -1,4 +1,4 @@
-import config from 'hacker-news/config/environment';
+import ENV from 'hacker-news/config/environment';
 import Firebase from 'firebase';
 import sinon from 'sinon';
 
@@ -546,14 +546,14 @@ var FixtureData = {
 
 
 var initialize = function(/* container, application */) {
-  if (config.environment === 'production' || config.stubFirebase !== true) {
+  if (ENV.environment === 'production' || ENV.stubFirebase !== true) {
     return;
   }
 
   stubFirebase();
   // stubFirebaseAuth(1);
 
-  var ref = new window.Firebase(config.firebase);
+  var ref = new window.Firebase(ENV.firebase);
   Firebase.goOffline();
   ref.set(FixtureData);
 };

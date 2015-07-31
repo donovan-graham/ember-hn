@@ -2,7 +2,7 @@
 import Ember from 'ember';
 import DS from 'ember-data';
 
-var alias = Ember.computed.alias;
+const { computed } = Ember;
 
 export default DS.Model.extend({
   delay: DS.attr('number'),
@@ -15,13 +15,13 @@ export default DS.Model.extend({
   // username: Ember.computed('data.id', function() {
   //   return this.get('data.id');
   // }),
-  username: alias('id'),
+  username: computed.alias('id'),
 
   // numSubmissions: Ember.computed('data.submitted.length', function() {
   //   // some are comments ...
   //   // some are stories ...
   //   return this.get('data.submitted.length');
   // }),
-  numSubmissions: alias('submitted.length'),
+  numSubmissions: computed.alias('submitted.length'),
 
 });
