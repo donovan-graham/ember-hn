@@ -25,7 +25,7 @@ module.exports = function(environment) {
     APP: { },
   };
 
-  ENV.stubFirebase = true;
+  ENV.stubFirebase = false;
 
   if (environment === 'development') {
     // ENV.stubFirebase = true;
