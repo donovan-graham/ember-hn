@@ -1,7 +1,7 @@
 <h3 class="title">
   <i class="index">{{rank}}</i>
   {{#if item.isLoaded}}
-      <a href={{item.url}} target="_blank">{{item.title}}</a>
+      <a {{action "open"}}>{{item.title}}</a>
   {{else}}
       <div class="spinner">
         <div class="rect1"></div>

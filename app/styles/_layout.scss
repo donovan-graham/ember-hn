@@ -21,9 +21,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a{
+a {
 	color: $orange;
 	text-decoration:none;
+  cursor: pointer;
   @include transition(color, 100ms, linear);
 	&:hover{
     color: $orange-dark;
@@ -143,6 +144,7 @@ span.toggle {
 
         a {
           color: #333;
+          cursor: pointer;
           @include transition(color, 100ms, linear);
 
           &:hover{
