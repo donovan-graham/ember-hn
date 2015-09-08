@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.platform7.emberhn" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>HN</name>
+    <description>
+        Hacker News - built with ember, firebase and cordova
+    </description>
+    <author email="donovan@platform7.com" href="http://www.platform7.com/ember-hn">
+        Donovan Graham
+    </author>
+
+    <content src="index.html" />
+
+    <!-- Preferences -->
+    <preference name="Fullscreen" value="false" />
+    <preference name="DisallowOverscroll" value="false"/>
+    <preference name="BackgroundColor" value="0xff0000ff"/>
+    <preference name="HideKeyboardFormAccessoryBar" value="false"/>
+    <preference name="Orientation" value="portrait" />
+
+    <!-- IOS: Preferences -->
+    <preference name="BackupWebStorage" value="local"/>
+    <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
+    <preference name="UIWebViewDecelerationSpeed" value="fast" />
+
+
+    <!-- Plugins -->
+    <plugin name="cordova-plugin-device" version="1.0.1" />
+    <plugin name="cordova-plugin-inappbrowser" version="1.0.1" />
+    <plugin name="cordova-plugin-crosswalk-webview" version="1.2.0" />
+    <plugin name="cordova-plugin-whitelist" version="1.1.0" />
+
+    <!-- Crosswalk -->
+    <preference name="xwalkVersion" value="15+" />
+    <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
+
+    <!-- Whitelist -->
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+
+</widget>
