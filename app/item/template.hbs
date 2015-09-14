@@ -1,4 +1,4 @@
-<div class="article">
+<div class="article {{dash item.hasKids}}">
 	<h1 class="title">{{item.title}}</h1>
 	<span class="source">(<a href={{item.url}}>{{url-parse item.url part="hostname"}}</a>)</span>
 
@@ -15,4 +15,3 @@
     </ul>
   {{/if}}
 </div>
-
