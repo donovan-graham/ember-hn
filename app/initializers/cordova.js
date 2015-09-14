@@ -11,7 +11,7 @@ export default {
     if (config.environment === 'test') {
       return;
     }
-    if (!cordova) {
+    if (!window.cordova) {
       return;
     }
 
@@ -27,8 +27,8 @@ export default {
 
   deviceReady(application) {
     run.cancel(this.fallbackTimer);
-    if (cordova && cordova.InAppBrowser && cordova.InAppBrowser.open) {
-      window.open = cordova.InAppBrowser.open;
+    if (window.cordova && window.cordova.InAppBrowser && window.cordova.InAppBrowser.open) {
+      window.open = window.cordova.InAppBrowser.open;
     }
     application.advanceReadiness();
   }
