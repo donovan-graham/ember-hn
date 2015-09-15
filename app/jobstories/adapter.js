@@ -1,12 +1,12 @@
 import ApplicationAdapter from 'hacker-news/application/adapter';
 
 export default ApplicationAdapter.extend({
-  pathForType: function() {
+  pathForType() {
     return "jobstories";
   },
 
-  _assignIdToPayload: function(snapshot) {
-    var payload = {
+  _assignIdToPayload(snapshot) {
+    let payload = {
       id: snapshot.key(),
       item: snapshot.val()
     };

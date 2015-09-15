@@ -1,9 +1,11 @@
 import Ember from 'ember';
 
+const { Inflector } = Ember;
+
 export default Ember.Handlebars.makeBoundHelper(function(singular, options) {
 
-  var value = 1;
-    
+  let value = 1;
+
   if (options.hash && options.hash.value) {
     value = options.hash.value;
     if (typeof value === 'string') {
@@ -18,7 +20,7 @@ export default Ember.Handlebars.makeBoundHelper(function(singular, options) {
   if (value <= 1) {
     return singular;
   } else {
-    var inflector = Ember.Inflector.inflector;
+    let inflector = Inflector.inflector;
 
     // inflector.uncountable('advice');
     // inflector.irregular('formula', 'formulae');

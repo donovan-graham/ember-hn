@@ -1,11 +1,19 @@
 <div class="article">
-  <h1>{{user.username}}</h1>
-  <dl>
-    <dt>Created:</dt>
-    <dd>{{time-ago user.created}}</dd>
-    <dt>Karma:</dt>
-    <dd>{{user.karma}}</dd>
-    <dt>About:</dt>
-    <dd>{{{user.about}}}</dd>
-  </dl>
+  <h1 class="title">{{user.username}}</h1>
+
+  <table class="info">
+    <tr>
+      <th>Created:</th>
+      <td>{{time-ago user.created}}</td>
+    </tr>
+    <tr>
+      <th>Karma:</th>
+      <td>{{user.karma}}</td>
+    </tr>
+    <tr>
+      <th>About:</th>
+      <td>{{user.about}}</td>
+    </tr>
+  </table>
+
 </div>

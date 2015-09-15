@@ -2,14 +2,15 @@ import ENV from 'hacker-news/config/environment';
 import Firebase from 'firebase';
 import sinon from 'sinon';
 
+const { Logger } = Ember;
 
 
-var stubFirebase = function () {
-  console.log('Stubbing firebase');
+let stubFirebase = function () {
+  Logger.info('Stubbing firebase');
 
   // check for existing stubbing
   if (!Firebase.prototype.set.restore) {
-    var originalSet = Firebase.prototype.set;
+    let originalSet = Firebase.prototype.set;
 
     sinon.stub(Firebase.prototype, 'set', function(newVal, onComplete) {
       originalSet.call(this, newVal);
@@ -20,7 +21,7 @@ var stubFirebase = function () {
   }
 
   if (!Firebase.prototype.update.restore) {
-    var originalUpdate = Firebase.prototype.update;
+    let originalUpdate = Firebase.prototype.update;
 
     sinon.stub(Firebase.prototype, 'update', function(objectToMerge, onComplete) {
       originalUpdate.call(this, objectToMerge);
@@ -32,43 +33,7 @@ var stubFirebase = function () {
 };
 
 
-// https://developers.google.com/closure/library/index
-// goog.require("fb.login.AuthenticationManager");
-//
-// var stubFirebaseAuth = function(uid) {
-//   uid = uid || '1';
-//
-//   if (fb.login.AuthenticationManager.prototype.authenticate.restore) {
-//     fb.login.AuthenticationManager.prototype.authenticate.restore();
-//   }
-//
-//   sinon.stub(fb.login.AuthenticationManager.prototype, 'authenticate', function(cred, userProfile, clientOptions, opt_onComplete /*, opt_onCancel */) {
-//
-//     var res = {
-//       token: cred,
-//       provider: "stub",
-//       uid: uid,
-//       expires: Math.floor(new Date() / 1000) + 24 * 60 * 60,
-//       auth: {
-//         provider: "stub",
-//         uid: uid
-//       }
-//     };
-//
-//     var status = 'ok';
-//     var data = {
-//       auth: res.auth,
-//       expires: res.expires
-//     };
-//
-//     this.authOnComplete_(status, data, true, res["token"], res, clientOptions || {}, opt_onComplete);
-//   });
-//
-// };
-
-
-
-var FixtureData = {
+let FixtureData = {
   "topstories": [ 9707170, 9707668, 9705832, 9705830, 9706035, 9705446, 9706633, 9707190, 9705780, 9706882, 9707918 ],
   "item": {
     9707170: {
@@ -545,15 +510,14 @@ var FixtureData = {
 };
 
 
-var initialize = function(/* container, application */) {
+let initialize = function(/* container, application */) {
   if (ENV.environment === 'production' || ENV.stubFirebase !== true) {
     return;
   }
 
   stubFirebase();
-  // stubFirebaseAuth(1);
 
-  var ref = new window.Firebase(ENV.firebase);
+  let ref = new window.Firebase(ENV.firebase);
   Firebase.goOffline();
   ref.set(FixtureData);
 };

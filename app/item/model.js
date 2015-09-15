@@ -3,7 +3,7 @@ import DS from 'ember-data';
 
 // https://github.com/HackerNews/API
 
-var ITEM_TYPE_JOB = 'job',
+const ITEM_TYPE_JOB = 'job',
   ITEM_TYPE_STORY = 'story',
   ITEM_TYPE_COMMENT = 'comment',
   ITEM_TYPE_POLL = 'poll',

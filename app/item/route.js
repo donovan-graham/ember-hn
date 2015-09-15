@@ -8,7 +8,7 @@ export default Ember.Route.extend({
     https://hacker-news.firebaseio.com/v0/item/8434128.json?print=pretty
   */
 
-  model: function(params) {
+  model(params) {
     return this.store.find('item', params.item_id);
   },
 

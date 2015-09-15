@@ -4,7 +4,7 @@ export default Ember.Route.extend({
 
   // https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty
 
-  model: function() {
+  model() {
     return this.store.findAll('topstories');
   },
 

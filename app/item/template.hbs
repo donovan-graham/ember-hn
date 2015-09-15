@@ -1,10 +1,9 @@
-<div class="article {{dash item.hasKids}}">
+<div class="article {{item.hasKids}}">
 	<h1 class="title">{{item.title}}</h1>
 	<span class="source">(<a href={{item.url}}>{{url-parse item.url part="hostname"}}</a>)</span>
 
 	<span class="info">
-	  {{item.score}} points by {{#link-to 'user' item.username}}{{item.username}}{{/link-to}} {{time-ago item.time}}
-	  | {{#link-to 'item' item.id}}{{#if item.hasKids}}comments{{else}}discuss{{/if}}{{/link-to}}
+  <strong>{{item.score}} points</strong> by <strong>{{#link-to 'user' item.username}}{{item.username}}{{/link-to}}</strong> {{time-ago item.time}}
 	</span>
 
   {{#if item.hasKids}}
@@ -13,5 +12,7 @@
         {{comment-item comment=kid}}
       {{/each}}
     </ul>
+  {{else}}
+    <br><br>Start the discussion
   {{/if}}
 </div>

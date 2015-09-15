@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   isExpanded: true,
 
   actions: {
-    toggleExpanded: function() {
+    toggleExpanded() {
       this.toggleProperty('isExpanded');
     }
   }

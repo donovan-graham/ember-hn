@@ -1,7 +1,14 @@
-<ul class="news-items">
-  {{#each resultsForPage as |story|}}
-    {{story-item rank=story.rank item=story.item}}
-  {{/each}}
-</ul>
+<h3>Jobs</h3>
+{{#if stories.length}}
+  {{pagination-links routeName='showstories' page=page itemsPerPage=itemsPerPage totalItems=stories.length}}
 
-{{pagination-links routeName='showstories' page=page itemsPerPage=itemsPerPage totalItems=stories.length}}
+  <ul class="news-items">
+    {{#each resultsForPage as |story|}}
+      {{story-item rank=story.rank item=story.item}}
+    {{/each}}
+  </ul>
+
+  {{pagination-links routeName='showstories' page=page itemsPerPage=itemsPerPage totalItems=stories.length}}
+{{else}}
+  {{partial 'loading'}}
+{{/if}}

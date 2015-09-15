@@ -171,13 +171,13 @@ span.toggle {
   }
   .article{
     margin: 20px 0;
-    padding: 30px 45px;
+    padding: 20px 45px;
     background-color: $white;
     border: 1px solid $light-grey;
 
   	.title{
   		line-height: 1.3em;
-  		margin-bottom: 5px;
+  		margin: 0px 0px 10px;
   	}
   	.source{
   		display: block;
@@ -188,16 +188,31 @@ span.toggle {
   		padding-left: 20px;
       .comment-item{
         .comment-header{
+          position: relative;
           .toggle{
             display: block;
+            position: absolute;
+            left: -20px;
+            top: 5px;
+            cursor: pointer;
             .anicon{
-              width: 12px;
-              height: 12px;
+              width: 10px;
+              height: 10px;
             }
           }
         }
+        .comment-content{
+        }
       }
   	}
+
+    table.info {
+      border: 0px;
+      th {
+        text-align: left;
+        min-width: 70px;
+      }
+    }
   }
 
   ul.pagination {

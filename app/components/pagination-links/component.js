@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const { computed } = Ember;
+
 export default Ember.Component.extend({
   tagName: 'ul',
   classNames: ['pagination'],
@@ -10,7 +12,7 @@ export default Ember.Component.extend({
   totalItems: null,
   routeName: '',
 
-  totalPages: Ember.computed('totalItems', 'itemsPerPage', function() {
+  totalPages: computed('totalItems', 'itemsPerPage', function() {
     if (this.get('totalItems')) {
       return Math.ceil(this.get('totalItems') / this.get('itemsPerPage'));
     } else {
@@ -18,25 +20,25 @@ export default Ember.Component.extend({
     }
   }),
 
-  // isVisible: Ember.computed.gte('totalPages', 2),
+  // isVisible: computed.gte('totalPages', 2),
 
-  prevPage: Ember.computed('totalPages', 'page', function() {
-    var prev = parseInt(this.get('page'), 10) - 1;
+  prevPage: computed('totalPages', 'page', function() {
+    let prev = parseInt(this.get('page'), 10) - 1;
     return (1 <= prev && prev < this.get('totalPages')) ? prev : null;
   }),
 
-  disablePrevPage: Ember.computed.none('prevPage'),
+  disablePrevPage: computed.none('prevPage'),
 
-  nextPage: Ember.computed('totalPages', 'page', function() {
-    var next = parseInt(this.get('page'), 10) + 1;
+  nextPage: computed('totalPages', 'page', function() {
+    let next = parseInt(this.get('page'), 10) + 1;
     return (1 < next && next <= this.get('totalPages')) ? next : null;
   }),
 
-  disableNextPage: Ember.computed.none('nextPage'),
+  disableNextPage: computed.none('nextPage'),
 
-  pages: Ember.computed('totalPages', function() {
-    var pages = [];
-    for (var i=1; i <= this.get('totalPages'); i++) {
+  pages: computed('totalPages', function() {
+    let pages = [];
+    for (let i=1; i <= this.get('totalPages'); i++) {
       pages.push(i);
     }
     return pages;
